@@ -13,7 +13,6 @@ public class Application {
         int strike;
         int ball;
         int restart;
-
         boolean replay = false;
 
         while (!replay) {
