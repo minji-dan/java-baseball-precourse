@@ -30,9 +30,11 @@ public class Application {
                     }
                 }
             }
-
             //pass될 때 까지
             while (!pass) {
+                for(int i=0;i<3;i++)
+                    System.out.println(randomNumber[i]);
+
                 for (int i = 0; i < number.length; i++) {
                     number[i] = sc.nextInt();
                     //0~10 사이 숫자 입력 받음
@@ -48,39 +50,41 @@ public class Application {
                 } else {
                     pass = true;
                 }
-            }
-            //입력한 숫자 출력
-            System.out.println("입력한 숫자: " + number[0] + ", " + number[1] + ", " + number[2]);
 
-            //랜덤숫자와 입력숫자 비교
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    if (randomNumber[i] == number[j]) {
-                        if (i == j) {
-                            strike++;
-                        } else {
-                            ball++;
+                //입력한 숫자 출력
+                System.out.println("입력한 숫자: " + number[0] + ", " + number[1] + ", " + number[2]);
+
+                //랜덤숫자와 입력숫자 비교
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (randomNumber[i] == number[j]) {
+                            if (i == j) {
+                                strike++;
+                            } else {
+                                ball++;
+                            }
                         }
                     }
                 }
-            }
-            //다 맞췄을 때
-            if (strike == 3) {
-                System.out.println("3 strike");
-                System.out.println("재 도전 1 종료 2");
-                restart=sc.nextInt();
-                if(restart==1) {
-                    pass=false;
-                    replay=false;
-                } else {
-                    replay = true;
-                }
-            }else { //틀렸을 떄
+                //다 맞췄을 때
+                if (strike == 3) {
+                    System.out.println("3 strike");
+                    System.out.println("재 도전 1 종료 2");
+                    restart = sc.nextInt();
+                    if (restart == 1) {
+                        pass = true;
+                        replay = false;
+                    } else {
+                        replay = true;
+                    }
+                } else { //틀렸을 떄
                     System.out.println(strike + "strike, " + ball + "ball");
                     pass = false;
+                }
+
+                strike = 0;
+                ball = 0;
             }
-            strike = 0;
-            ball = 0;
         }
         System.out.println("end");
     }
