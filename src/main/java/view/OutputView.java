@@ -1,4 +1,6 @@
-package baseball.view;
+package view;
+
+import baseball.Score;
 
 public class OutputView {
     private static final String BALL = "볼 ";
@@ -14,13 +16,13 @@ public class OutputView {
         int strikeCnt=score.getStrikeCnt();
 
         printBallPoint(ballCnt);
-        printStrikePoint(strikePoint);
+        printStrikePoint(strikeCnt);
         printIsNothing(ballCnt, strikeCnt);
 
         System.out.println("\n");
     }
 
-    private static void printBallPoint(int ballcnt){
+    private static void printBallPoint(int ballCnt){
         if (ballCnt != 0){
             printMsg(ballCnt);
             printMsg(BALL);
@@ -43,9 +45,9 @@ public class OutputView {
     }
 
     public static void printGameOver(){
-        printMsg(ALL_CORRENCT);
+        printMsg(ALL_CORRECT);
     }
-    public static void printMsg(object msg){
+    public static void printMsg(Object msg){
         System.out.println(msg);
     }
 }
